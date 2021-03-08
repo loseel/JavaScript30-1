@@ -7,10 +7,6 @@
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
-    // Get your shorts on - this is an array workout!
-    // ## Array Cardio Day 1
-
-    // Some data we can work with
 
     const inventors = [
       { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
@@ -37,28 +33,64 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    // const result = inventors.filter((a) => a.year >= 1500 &&  a.year < 1600)
+    // console.table(result);
 
-    // Array.prototype.map()
+    // Array.prototype.map() => 항상 원본과 같은 양의 배열을 return!
     // 2. Give us an array of the inventors first and last names
+    // const result = inventors.map((a) => `${a.first} ${a.last}`)
+    // console.table(result);
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    // const result = inventors.sort((a,b) => {
+    //   return a.year-b.year; // == a.year > b.year
+    // });
+    // console.table(result);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    // reduce(이전 값 (fn 뒤에 초기 값 설정 필요!), 현재 값)
+    // const result = inventors.reduce((total, a) => {
+    //   return total + (a.passed - a.year)
+    // }, 0);
+    // console.table(result);
 
     // 5. Sort the inventors by years lived
+    // const result = inventors.sort((a,b) => {
+    //   return (a.passed - a.year)-(b.passed - b.year);
+    // });
+    // console.table(result);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    
+    // NodeList 배열로 만들기 Array.from(NodeList)
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    // console.log(people.map(a => a.split(' ')[1]).sort());
+    // const result = people.sort((a, b) => {
+    //     const [alast, afirst] = a.split(', ');
+    //     const [blast, bfirst] = b.split(', ');
+    //     return alast > blast ? 1 : -1;
+    //   });
+    // console.log(result);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const result = data.reduce((obj, cur) => {
+      if(!obj[cur]) {
+        obj[cur] = 0;
+      }
+      obj[cur]++;
+      return obj;
+    }, {})
+
+    console.log(result);
 
   </script>
 </body>
